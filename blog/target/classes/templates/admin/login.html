@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <title>博客管理登录</title>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="ui m-container m-padded-tb-massive" style="max-width: 30em!important;">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui teal image header">
+
+                    <div class="content">
+                        后台管理登录
+                    </div>
+                </h2>
+                <form class="ui large form" method="post" action="#" th:action="@{/admin/login}">
+                    <div class="ui segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="username" placeholder="用户名">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="密码">
+                            </div>
+                        </div>
+                        <button class="ui fluid large teal submit button">登录</button>
+                    </div>
+
+                    <div class="ui error mini message"></div>
+                    <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
+                </form>
+
+                <!--<div class="ui message">
+                    New to us? <a href="#">Sign Up</a>
+                </div>-->
+            </div>
+        </div>
+    </div>
+
+
+    <!--js-->
+    <th:block th:replace="admin/_fragments :: script"></th:block>
+
+    <script>
+        $('.menu.toggle').click(function (){
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        $('.ui.dropdown').dropdown({
+            on : 'hover'
+        });
+
+        /*登录时验证表单提交*/
+        $('.ui.form').form({
+            fields : {
+                username : {
+                    identifier : 'username',
+                    rules : [{
+                        type : 'empty',
+                        prompt : '请输入用户名'
+                    }]
+                },
+                password : {
+                    identifier : 'password',
+                    rules : [{
+                        type : 'empty',
+                        prompt : '请输入密码'
+                    }]
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

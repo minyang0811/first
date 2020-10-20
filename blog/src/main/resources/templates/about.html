@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+    <title>关于我</title>
+</head>
+<body>
+    <!--导航-->
+    <nav th:replace="_fragments :: menu(5)"></nav>
+
+    <!--中间内容-->
+    <div class="m-container m-padded-tb-big">
+        <div class="ui container">
+            <div class="ui stackable grid">
+                <div class="eleven wide column">
+                    <div class="ui segment">
+                        <img src="https://picsum.photos/id/1005/800/600" alt="" class="ui rounded image">
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <div class="ui top attached segment">
+                        <div class="ui header">关于我</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <p class="m-text">锤子，永远滴神，天天学习，一天学12个小时，不服都不行，springBoot项目就学完了，赶不上。</p>
+                        <p class="m-text">锤子，你别学了，求你了。。。</p>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">编程</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">运动</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">写作</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">思考</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">读书</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">画画</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">JavaScript</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">SpringBoot</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">Linux</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">JavaSE</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">Java</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">JSP</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">Redis</div>
+                        <div class="ui teal basic left pointing label m-margin-tb-tiny">Mysql</div>
+                    </div>
+                    <div class="ui bottom attached segment">
+                        <a href="#" class="ui circular icon button">
+                            <i class="github icon"></i>
+                        </a>
+                        <a href="#" class="ui wechat circular icon button">
+                            <i class="weixin icon"></i>
+                        </a>
+                        <a href="#" class="ui qq circular icon button" data-content="1443154220" data-position="bottom center">
+                            <i class="qq icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="ui wechatQR flowing popup transition hidden">
+                        <img src="../static/images/WeChat.jpg" th:src="@{/images/WeChat.jpg}" alt="" class="ui rounded image" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <!--底部-->
+    <footer th:replace="_fragments :: footer"></footer>
+
+    <!--js-->
+    <th:block th:replace="_fragments :: script"></th:block>
+
+    <script>
+        $('.menu.toggle').click(function (){
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+        $('.wechat').popup({
+            popup : $('.wechatQR'),
+            on : 'hover',
+            position : 'bottom center'
+        })
+        $('.qq').popup();
+    </script>
+
+</body>
+</html>

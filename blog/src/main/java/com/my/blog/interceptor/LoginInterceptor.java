@@ -1,0 +1,18 @@
+package com.my.blog.interceptor;
+
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class LoginInterceptor extends HandlerInterceptorAdapter {
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        if(request.getSession().getAttribute("user")==null){
+            response.sendRedirect("/admin");  //如果未登录，重定向到登录页面
+            return false;
+        }
+
+        return true;
+    }
+}

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+    <title>主页</title>
+</head>
+<body>
+    <!--导航-->
+    <nav th:replace="_fragments :: menu(1)"></nav>
+
+    <!--中间内容-->
+    <div class="m-container m-padded-tb-big">
+        <div class="ui container">
+            <div class="ui stackable grid">
+                <!--左边博客列表-->
+                <div class="eleven wide column">
+                    <!--header-->
+                    <div class="ui top attached segment">
+                        <div class="ui middle aligned two column grid">
+                            <div class="column">
+                                <h3 class="ui teal header">博客</h3>
+                            </div>
+                            <div class="right aligned column">
+                                共<h2 class="ui orange header m-inline-block m-text-thin" th:text="${page.totalElements}">14</h2>篇
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--content-->
+                    <div class="ui attached segment" th:each="blog : ${page.content}">
+                        <div class="ui padded vertical segment m-padded-tb-large">
+                            <div class="ui middle aligned mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">什么是semantic?</a></h3>
+                                    <p class="m-text" th:text="|${blog.description}......|">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="https://picsum.photos/id/1005/100/100" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class=""header th:text="${blog.user.nickname}">闵阳</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-10-1</span>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i><span th:text="${blog.views}">1234</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned column five wide column">
+                                            <a href="#" class="ui teal basic label m-pa m-padded-tiny m-text-thin" th:text="${blog.type.name}">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column">
+                                    <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                                        <img src="https://picsum.photos/id/1005/800/450" th:src="@{${blog.firstPicture}}" alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--/*-->
+                        <div class="ui padded vertical segment m-padded-tb-large">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">什么是semantic?</h3>
+                                    <p class="m-text">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class=""header>闵阳</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i> 2020-10-1
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 1234
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned column five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-pa m-padded-tiny m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column">
+                                    <a href="#" target="_blank">
+                                        <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded vertical segment m-padded-tb-large">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">什么是semantic?</h3>
+                                    <p class="m-text">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class=""header>闵阳</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i> 2020-10-1
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 1234
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned column five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-pa m-padded-tiny m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column">
+                                    <a href="#" target="_blank">
+                                        <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded vertical segment m-padded-tb-large">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">什么是semantic?</h3>
+                                    <p class="m-text">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class=""header>闵阳</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i> 2020-10-1
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 1234
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned column five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-pa m-padded-tiny m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column">
+                                    <a href="#" target="_blank">
+                                        <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded vertical segment m-padded-tb-large">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">什么是semantic?</h3>
+                                    <p class="m-text">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class=""header>闵阳</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i> 2020-10-1
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 1234
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned column five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-pa m-padded-tiny m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column">
+                                    <a href="#" target="_blank">
+                                        <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded vertical segment m-padded-tb-large">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">什么是semantic?</h3>
+                                    <p class="m-text">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class=""header>闵阳</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i> 2020-10-1
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 1234
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned column five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-pa m-padded-tiny m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column">
+                                    <a href="#" target="_blank">
+                                        <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded vertical segment m-padded-tb-large">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">什么是semantic?</h3>
+                                    <p class="m-text">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class=""header>闵阳</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i> 2020-10-1
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 1234
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned column five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-pa m-padded-tiny m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column">
+                                    <a href="#" target="_blank">
+                                        <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded vertical segment m-padded-tb-large">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">什么是semantic?</h3>
+                                    <p class="m-text">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class=""header>闵阳</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i> 2020-10-1
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 1234
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned column five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-pa m-padded-tiny m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column">
+                                    <a href="#" target="_blank">
+                                        <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded vertical segment m-padded-tb-large">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">什么是semantic?</h3>
+                                    <p class="m-text">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class=""header>闵阳</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i> 2020-10-1
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 1234
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned column five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-pa m-padded-tiny m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column">
+                                    <a href="#" target="_blank">
+                                        <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded vertical segment m-padded-tb-large">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">什么是semantic?</h3>
+                                    <p class="m-text">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class=""header>闵阳</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i> 2020-10-1
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 1234
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned column five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-pa m-padded-tiny m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column">
+                                    <a href="#" target="_blank">
+                                        <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui padded vertical segment m-padded-tb-large">
+                            <div class="ui mobile reversed stackable grid">
+                                <div class="eleven wide column">
+                                    <h3 class="ui header">什么是semantic?</h3>
+                                    <p class="m-text">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                                    <div class="ui grid">
+                                        <div class="eleven wide column">
+                                            <div class="ui mini horizontal link list">
+                                                <div class="item">
+                                                    <img src="https://picsum.photos/id/1005/100/100" alt="" class="ui avatar image">
+                                                    <div class="content">
+                                                        <a href="#" class=""header>闵阳</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="calendar icon"></i> 2020-10-1
+                                                </div>
+                                                <div class="item">
+                                                    <i class="eye icon"></i> 1234
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="right aligned column five wide column">
+                                            <a href="#" target="_blank" class="ui teal basic label m-pa m-padded-tiny m-text-thin">认知升级</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="five wide column">
+                                    <a href="#" target="_blank">
+                                        <img src="https://picsum.photos/id/1005/800/450" alt="" class="ui rounded image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--*/-->
+
+                    </div>
+
+                    <!--bottom-->
+                    <div class=" ui bottom attached segment " th:if="${page.totalPages>1}">
+                        <div class="ui middle aligned two column grid">
+                            <div class="column">
+                                <a th:href="@{/(page=${page.number}-1)}" class="ui mini teal basic button" th:unless="${page.first}">上一页</a>
+                            </div>
+                            <div class="right aligned column">
+                                <div class="column">
+                                    <a th:href="@{/(page=${page.number}+1)}" class="ui mini teal basic button" th:unless="${page.last}">下一页</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--右边的top-->
+                <div class="five wide column">
+                    <!--分类-->
+                    <div class="ui segments">
+                        <div class="ui secondary segment">
+                            <div class="ui two column grid">
+                                <div class="column">
+                                    <i class="idea icon"></i> 分类
+                                </div>
+                                <div class="right aligned column">
+                                    <a href="#" th:href="@{types/-1}" target="_blank">more <i class="angle double right icon"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui teal segment">
+                            <div class="ui fluid vertical menu" >
+                                <a href="#" th:href="@{/types/{id}(id=${type.id})}" target="_blank" class="item" th:each="type : ${types}">
+                                    <span th:text="${type.name}">学习日志</span>
+                                    <div class="ui teal basic left pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--标签-->
+                    <div class="ui segments m-margin-top-large">
+                        <div class="ui secondary segment">
+                            <div class="ui two column grid">
+                                <div class="column">
+                                    <i class="tags icon"></i> 标签
+                                </div>
+                                <div class="right aligned column">
+                                    <a href="#" th:href="@{types/-1}" target="_blank">more
+                                        <i class="angle double right icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="ui teal segment">
+                                <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" target="_blank"  class="ui teal basic left pointing label m-margin-tb-tiny" th:each="tag:${tags}">
+                                    <span th:text="${tag.name}"></span>方法论
+                                    <div class="detail" th:text="${#arrays.length(tag.blogs)}">23</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--最新推荐-->
+                    <div class="ui segments m-margin-top-large">
+                        <div class="ui secondary segment">
+                            <i class="bookmark icon"></i> 最新推荐
+                        </div>
+                        <div class="ui segment" th:each="blog:${recommendBlogs}">
+                            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}">用户故事 (User Story)</a>
+                        </div>
+
+                    </div>
+
+                    <!--二维码-->
+                    <h4 class="ui horizontal divider header m-margin-top-large">扫码关注我</h4>
+                    <div class="ui centered card" style="width:11em">
+                        <img src="../static/images/WeChat.jpg" th:src="@{/images/WeChat.jpg}" alt="" class="ui rounded image">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <!--底部-->
+    <footer th:replace="_fragments :: footer"></footer>
+
+    <!--js-->
+    <th:block th:replace="_fragments :: script"></th:block>
+
+    <script>
+        $('.menu.toggle').click(function (){
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+    </script>
+</body>
+</html>

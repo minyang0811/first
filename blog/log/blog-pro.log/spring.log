@@ -1,0 +1,10 @@
+2020-10-01 10:08:00.164  INFO 1428 --- [restartedMain] com.my.blog.BlogApplication              : Starting BlogApplication on my with PID 1428 (E:\project\blog\target\classes started by 15797761109 in E:\project\blog)
+2020-10-01 10:08:00.166  INFO 1428 --- [restartedMain] com.my.blog.BlogApplication              : The following profiles are active: pro
+2020-10-01 10:08:01.271  WARN 1428 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-01 10:08:01.488  WARN 1428 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2020-10-01 10:08:01.585  INFO 1428 --- [restartedMain] com.my.blog.BlogApplication              : Started BlogApplication in 1.748 seconds (JVM running for 2.449)
+2020-10-01 10:09:10.966  INFO 9772 --- [restartedMain] com.my.blog.BlogApplication              : Starting BlogApplication on my with PID 9772 (E:\project\blog\target\classes started by 15797761109 in E:\project\blog)
+2020-10-01 10:09:10.974  INFO 9772 --- [restartedMain] com.my.blog.BlogApplication              : The following profiles are active: pro
+2020-10-01 10:09:12.048  WARN 9772 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-10-01 10:09:12.300  WARN 9772 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2020-10-01 10:09:12.394  INFO 9772 --- [restartedMain] com.my.blog.BlogApplication              : Started BlogApplication in 1.746 seconds (JVM running for 2.5)

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+    <title>404</title>
+</head>
+<body>
+    <!--导航-->
+    <nav th:replace="_fragments :: menu(0)"></nav>
+    <br>
+    <br>
+
+    <div class="m-container m-padded-tb-massive">
+        <div class="ui error message">
+            <div class="ui container m-padded-tb-huge">
+                <h2>404</h2>
+                <p>对不起，你访问的资源不存在！</p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <!--底部-->
+    <footer th:replace="_fragments :: footer"></footer>
+
+
+</body>
+</html>

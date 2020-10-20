@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+    <title>分类页</title>
+</head>
+<body>
+    <!--导航-->
+    <nav th:replace="_fragments :: menu(2)"></nav>
+
+    <!--中间内容-->
+    <div class="m-container m-padded-tb-big">
+        <div class="ui container">
+            <!--header-->
+            <div class="ui top attached segment">
+                <div class="ui middle aligned two column grid">
+                    <div class="column">
+                        <h3 class="ui teal header">分类</h3>
+                    </div>
+                    <div class="right aligned column">
+                        共<h2 class="ui orange header m-inline-block m-text-thin" th:text="${#arrays.length(types)}">14</h2>个
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui attached segment m-padded-tb-large">
+                <div class="ui labeled button m-margin-tb-tiny" th:each="type : ${types}">
+                    <a href="#" th:href="@{/types/{id}(id=${type.id})}" class="ui basic button" th:classappend="${type.id==activeTypeId}?'teal'" th:text="${type.name}">思考与感悟</a>
+                    <div class="ui basic left pointing label" th:classappend="${type.id==activeTypeId}?'teal'" th:text="${#arrays.length(type.blogs)}">24</div>
+                </div>
+            </div>
+
+            <div class="ui top attached teal segment">
+                <div class="ui padded vertical segment m-padded-tb-large" th:each="blog : ${page.content}">
+                    <div class="ui middle aligned mobile reversed stackable grid">
+                        <div class="eleven wide column">
+                            <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">什么是semantic?</a></h3>
+                            <p class="m-text" th:text="|${blog.description}......|">顾名思义 这是一款语义化的UI框架，代码可读性与可理解性很强，界面简洁美观，与bootstrap风格接近，基于jquery，适用响应式布局，提供一些基本模板，兼容Firefox、Chrome、safari,IE 10+等浏览器。</p>
+
+                            <div class="ui grid">
+                                <div class="eleven wide column">
+                                    <div class="ui mini horizontal link list">
+                                        <div class="item">
+                                            <img src="https://picsum.photos/id/1005/100/100" th:src="@{${blog.user.avatar}}" alt="" class="ui avatar image">
+                                            <div class="content">
+                                                <a href="#" class=""header th:text="${blog.user.nickname}">闵阳</a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-10-1</span>
+                                        </div>
+                                        <div class="item">
+                                            <i class="eye icon"></i><span th:text="${blog.views}">1234</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right aligned column five wide column">
+                                    <a href="#" class="ui teal basic label m-pa m-padded-tiny m-text-thin" th:text="${blog.type.name}">认知升级</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="five wide column">
+                            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                                <img src="https://picsum.photos/id/1005/800/450" th:src="@{${blog.firstPicture}}" alt="" class="ui rounded image">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--bottom-->
+            <div class=" ui bottom attached segment " th:if="${page.totalPages>1}">
+                <div class="ui middle aligned two column grid">
+                    <div class="column">
+                        <a th:href="@{/(page=${page.number}-1)}" class="ui mini teal basic button" th:unless="${page.first}">上一页</a>
+                    </div>
+                    <div class="right aligned column">
+                        <div class="column">
+                            <a th:href="@{/(page=${page.number}+1)}" class="ui mini teal basic button" th:unless="${page.last}">下一页</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <!--底部-->
+    <footer th:replace="_fragments :: footer"></footer>
+
+    <!--js-->
+    <th:block th:replace="_fragments :: script"></th:block>
+    <script>
+        $('.menu.toggle').click(function (){
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+    </script>
+
+</body>
+</html>
